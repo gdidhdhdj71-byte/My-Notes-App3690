@@ -16,6 +16,21 @@
   --gray:   #E4E4E7;   --gray-ink:   #4b4b4f;
 }
 
+html[data-theme="dark"] {
+  --bg: #17181c;
+  --surface: #222327;
+  --ink: #f0f0f1;
+  --ink-soft: #9a9a9e;
+  --line: #34353a;
+
+  --yellow: #4a4425;   --yellow-ink: #f5da7a;
+  --mint:   #1d3a2f;   --mint-ink:   #8fe8c4;
+  --blue:   #202f47;   --blue-ink:   #9dc3f7;
+  --pink:   #3d2432;   --pink-ink:   #f6a9c6;
+  --lavender: #2c2549; --lavender-ink: #c9b3ff;
+  --gray:   #2a2b30;   --gray-ink:   #c8c8cc;
+}
+
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 html, body {
@@ -138,6 +153,7 @@ svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width:
 .note-gray { background: var(--gray); color: var(--gray-ink); }
 
 /* ---------- Empty state ---------- */
+.empty-state[hidden] { display: none; }
 .empty-state {
   flex: 1;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -169,6 +185,10 @@ svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width:
 .editor-date { flex: 1; font-size: 12px; color: var(--ink-soft); margin-left: 6px; }
 #btn-pin.active { color: var(--accent); }
 #btn-pin.active svg { fill: currentColor; }
+
+#theme-icon path { transition: opacity 0.15s ease; }
+html[data-theme="dark"] #theme-icon path { opacity: 0; }
+html[data-theme="dark"] #theme-icon circle { fill: currentColor; stroke: none; r: 8; }
 
 .editor-body {
   flex: 1;
