@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:;">
-  <title>Notes</title>
+  <title>Nikola</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -12,10 +12,10 @@
   <!-- ===================== LIST SCREEN ===================== -->
   <section id="screen-list" class="screen active">
     <header class="topbar">
-      <button class="icon-btn" id="btn-menu" aria-label="Menu">
-        <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <button class="icon-btn" id="btn-menu" aria-label="Toggle dark mode">
+        <svg viewBox="0 0 24 24" id="theme-icon"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>
       </button>
-      <h1 class="topbar-title">Notes</h1>
+      <h1 class="topbar-title">Nikola</h1>
       <button class="icon-btn" id="btn-view-toggle" aria-label="Toggle view">
         <svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>
       </button>
@@ -84,4 +84,4 @@
   <script src="cordova.js"></script>
   <script src="js/app.js"></script>
 </body>
-  </html>
+</html>
