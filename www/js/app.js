@@ -3,6 +3,7 @@
 
   var STORAGE_KEY = "notes_app_data_v1";
   var VIEW_KEY = "notes_app_view_v1";
+  var THEME_KEY = "notes_app_theme_v1";
 
   var els = {
     listScreen: document.getElementById("screen-list"),
@@ -16,6 +17,7 @@
     btnPin: document.getElementById("btn-pin"),
     btnDelete: document.getElementById("btn-delete"),
     btnViewToggle: document.getElementById("btn-view-toggle"),
+    btnMenu: document.getElementById("btn-menu"),
     editorTitle: document.getElementById("editor-title"),
     editorContent: document.getElementById("editor-content"),
     editorDate: document.getElementById("editor-date"),
@@ -47,6 +49,22 @@
 
   function uid() {
     return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+  }
+
+  // ---------- theme ----------
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem(THEME_KEY, theme);
+  }
+
+  function initTheme() {
+    var saved = localStorage.getItem(THEME_KEY);
+    if (saved === "dark" || saved === "light") {
+      applyTheme(saved);
+      return;
+    }
+    var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    applyTheme(prefersDark ? "dark" : "light");
   }
 
   // ---------- rendering ----------
@@ -241,8 +259,14 @@
     render();
   });
 
+  els.btnMenu.addEventListener("click", function () {
+    var current = document.documentElement.getAttribute("data-theme");
+    applyTheme(current === "dark" ? "light" : "dark");
+  });
+
   // ---------- init ----------
   function init() {
+    initTheme();
     loadNotes();
     state.listMode = localStorage.getItem(VIEW_KEY) === "1";
     render();
